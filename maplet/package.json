@@ -14,7 +14,8 @@
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-modals": "^0.19.9",
-    "react-native-swiper": "^1.5.14"
+    "react-native-swiper": "^1.5.14",
+    "react-native-swiper-flatlist": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

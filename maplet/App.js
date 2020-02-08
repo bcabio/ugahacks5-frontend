@@ -24,7 +24,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Swiper from 'react-native-swiper'
+import SwiperWithRenderItems from './SwiperWithRenderItems';
+import SwiperWithChildren from './SwiperWithChildren';
+
 
 const App: () => React$Node = () => {
   return (
@@ -43,6 +45,7 @@ const App: () => React$Node = () => {
           <View style={styles.body}>
             <View style={styles.headerSection}>
               <Text style={styles.sectionTitle}>Welcome to the app</Text>
+
               <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center' }} >
                 <View style={{ width: 50, height: 50, backgroundColor: 'grey' }} />
                 <View style={{ width: 50, height: 50, backgroundColor: 'powderblue' }} />
@@ -50,10 +53,7 @@ const App: () => React$Node = () => {
                 <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
 
               </View>
-              {/* <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text> */}
+              <SwiperWithRenderItems />
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
