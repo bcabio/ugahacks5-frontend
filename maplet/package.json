@@ -12,7 +12,9 @@
   "dependencies": {
     "@dudigital/react-native-zoomable-view": "^1.0.15",
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-native-modals": "^0.19.9",
+    "react-native-swiper": "^1.5.14"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

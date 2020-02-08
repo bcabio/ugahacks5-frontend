@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Swiper from 'react-native-swiper'
+
 const App: () => React$Node = () => {
   return (
     <>
@@ -32,13 +34,27 @@ const App: () => React$Node = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
+          
+          {/* {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
-          )}
+          )} */}
           <View style={styles.body}>
+            <View style={styles.headerSection}>
+              <Text style={styles.sectionTitle}>Welcome to the app</Text>
+              <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center' }} >
+                <View style={{ width: 50, height: 50, backgroundColor: 'grey' }} />
+                <View style={{ width: 50, height: 50, backgroundColor: 'powderblue' }} />
+                <View style={{ width: 50, height: 50, backgroundColor: 'black' }} />
+                <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
+
+              </View>
+              {/* <Text style={styles.sectionDescription}>
+                Edit <Text style={styles.highlight}>App.js</Text> to change this
+                screen and then come back to see your edits.
+              </Text> */}
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
@@ -64,7 +80,7 @@ const App: () => React$Node = () => {
                 Read the docs to discover what to do next:
               </Text>
             </View>
-            <LearnMoreLinks />
+            {/* <LearnMoreLinks /> */}
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -74,7 +90,7 @@ const App: () => React$Node = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: 'red',
   },
   engine: {
     position: 'absolute',
@@ -82,6 +98,12 @@ const styles = StyleSheet.create({
   },
   body: {
     backgroundColor: Colors.white,
+  },
+  headerSection: {
+    // display: 'flex',
+    paddingHorizontal: 24,
+    height:140,
+    backgroundColor:'red'
   },
   sectionContainer: {
     marginTop: 32,
