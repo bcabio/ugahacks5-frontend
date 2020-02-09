@@ -14,7 +14,9 @@ import {
   View,
   Text,
   StatusBar,
+  Dimensions
 } from 'react-native';
+import SwiperFlatList from 'react-native-swiper-flatlist';
 
 import {
   Header,
@@ -24,71 +26,52 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import SwiperWithRenderItems from './SwiperWithRenderItems';
-import SwiperWithChildren from './SwiperWithChildren';
-
+state = {
+    customBackgroundModal: false,
+    defaultAnimationModal: false,
+    swipeableModal: false,
+    scaleAnimationModal: false,
+    slideAnimationModal: false,
+    bottomModalAndTitle: false,
+    bottomModal: false,
+  };
 
 const App: () => React$Node = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
       <SafeAreaView>
+        <StatusBar barStyle="dark-content"> </StatusBar>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          
-          {/* {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )} */}
-          <View style={styles.body}>
-            <View style={styles.headerSection}>
-              <Text style={styles.sectionTitle}>Welcome to the app</Text>
 
-              <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center' }} >
-                <View style={{ width: 50, height: 50, backgroundColor: 'grey' }} />
-                <View style={{ width: 50, height: 50, backgroundColor: 'powderblue' }} />
-                <View style={{ width: 50, height: 50, backgroundColor: 'black' }} />
-                <View style={{ width: 50, height: 50, backgroundColor: 'green' }} />
-
-              </View>
-              <SwiperWithRenderItems />
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
+              
+              {/* <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            {/* <LearnMoreLinks /> */}
-          </View>
+              </Text> */} 
+              <SwiperFlatList 
+                data={items}
+                renderItem={({ item }) => <Image style={styles.image} source={item.image} />}
+                showPagination>
+                  <View>
+                    <Text>Hi</Text>
+                  </View>
+              
+              </SwiperFlatList>
+          
         </ScrollView>
       </SafeAreaView>
-    </>
   );
 };
 
+export const { width, height } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
+  mapViewSwiperShape: {
+    height: height * 0.5,
+    width,
+    justifyContent: 'center'
+  },
   scrollView: {
     backgroundColor: 'red',
   },
@@ -130,6 +113,41 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  maincontainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  }, container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  dialogContentView: {
+    paddingLeft: 18,
+    paddingRight: 18,
+  },
+  navigationBar: {
+    borderBottomColor: '#b5b5b5',
+    borderBottomWidth: 0.5,
+    backgroundColor: '#ffffff',
+  },
+  navigationTitle: {
+    padding: 10,
+  },
+  navigationButton: {
+    padding: 10,
+  },
+  navigationLeftButton: {
+    paddingLeft: 20,
+    paddingRight: 40,
+  },
+  navigator: {
+    flex: 1,
+    // backgroundColor: '#000000',
+  },
+  customBackgroundModal: {
+    opacity: 0.5,
+    backgroundColor: '#000',
   },
 });
 
